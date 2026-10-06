@@ -1,0 +1,14 @@
+{
+  "name": "devops-training-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Учебный HTTP-сервис для практики DevOps",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  }
+}

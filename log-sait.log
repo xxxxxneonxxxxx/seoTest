@@ -1,0 +1,16 @@
+
+> devops-training-starter@1.0.0 start
+> node src/index.js
+
+Сервис слушает порт 3000
+
+> devops-training-starter@1.0.0 start
+> node src/index.js
+
+Сервис слушает порт 3000
+
+> devops-training-starter@1.0.0 start
+> node src/index.js
+
+Сервис слушает порт 3000
+{"timestamp":"2026-10-06T12:31:52.665Z","level":"info","method":"GET","url":"/missing","statusCode":404,"duration_ms":null}
