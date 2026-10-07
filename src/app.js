@@ -6,7 +6,7 @@ function sendJson(response, statusCode, body) {
   });
   response.end(JSON.stringify(body));
 }
-
+ 
 export function handleRequest(request, response) {
   const startTime = Date.now();
   if (request.method === 'GET' && request.url === '/') {
