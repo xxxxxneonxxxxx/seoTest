@@ -8,7 +8,6 @@ function sendJson(response, statusCode, body) {
 }
  
 export function handleRequest(request, response) {
-  const startTime = Date.now();
   if (request.method === 'GET' && request.url === '/') {
     sendJson(response, 200, {
       name: 'devops-training-starter',
@@ -24,21 +23,24 @@ export function handleRequest(request, response) {
 
   sendJson(response, 404, { error: 'Not found' });
 
-  response.on('finish', () => {
-    const log ={
-      timestamp: new Date().toISOString(),
-      level: 'info',
-      method: request.method,
-      url: request.url,
-      statusCode: response.statusCode,
-      duration_ms: Date.now() - startTime
-    }
-
-    console.log(JSON.stringify(log));
-  });
 
 }
 
 export function createApp() {
-  return createServer(handleRequest);
+  return createServer((request, response) => {
+    const startTime = Date.now();
+    response.on('finish', () => {
+      const log = {
+        timestamp: new Date().toISOString(),
+        level: 'info',
+        method: request.method,
+        url: request.url,
+        statusCode: response.statusCode,
+        durationMs: Date.now() - startTime,
+      };
+      console.log(JSON.stringify(log, null, 2));
+    });
+    
+    handleRequest(request, response);
+  });
 }
