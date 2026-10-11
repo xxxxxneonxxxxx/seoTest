@@ -32,4 +32,5 @@ jobs:
 
       - name: Run tests
         run: npm test
-Build Docker image: docker build -t devops-app:ci 
+      - name: Build Docker image 
+        run: docker build -t devops-app:ci .
